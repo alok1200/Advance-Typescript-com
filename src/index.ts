@@ -40,6 +40,24 @@
 
 //Partial
 
+// interface Employee {
+//   id: number;
+//   name: string;
+//   address: string;
+//   mobile: number;
+// }
+
+// type EmployeeProp = {
+//   id?: number;
+//   name?: string;
+//   address?: string;
+//   mobile?: number;
+// };
+
+// function updateEmployee(EmployeeProp: EmployeeProp) {}
+
+// second way usinf Partial
+
 interface Employee {
   id: number;
   name: string;
@@ -47,11 +65,8 @@ interface Employee {
   mobile: number;
 }
 
-type EmployeeProp = {
-  id?: number;
-  name?: string;
-  address?: string;
-  mobile?: number;
-};
+type EmployeeProp = Pick<Employee, "id" | "name" | "address">;
 
-function updateEmployee(EmployeeProp: EmployeeProp) {}
+type UpdateEmployee = Partial<EmployeeProp>;
+
+function updateEmployee(EmployeeProp: UpdateEmployee) {}
