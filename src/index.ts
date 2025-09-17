@@ -70,3 +70,22 @@ type EmployeeProp = Pick<Employee, "id" | "name" | "address">;
 type UpdateEmployee = Partial<EmployeeProp>;
 
 function updateEmployee(EmployeeProp: UpdateEmployee) {}
+
+// Readonly
+
+type User = {
+  readonly name: string;
+  readonly age: number;
+  readonly email: string;
+  readonly password: string;
+};
+
+// const user: readonly <User> = {. this is also work same as readonly
+const user: User = {
+  name: "akash",
+  age: 23,
+  email: "akash@gmail.com",
+  password: "123456",
+};
+
+// user.name = "abjcnd"
