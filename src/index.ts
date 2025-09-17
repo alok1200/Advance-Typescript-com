@@ -23,6 +23,23 @@
 
 // function updateUser(Updateprop: Updateprop) {}
 
+// interface Employee {
+//   id: number;
+//   name: string;
+//   address: string;
+//   mobile: number;
+// }
+
+// type EmployeeProp = Pick<Employee, "id" | "name" | "address">;
+
+// function updateEmployee(EmployeeProp: EmployeeProp) {
+//   // this is how we using that first api
+//   // this is using for generics
+//   // data base using yourself
+// }
+
+//Partial
+
 interface Employee {
   id: number;
   name: string;
@@ -30,9 +47,11 @@ interface Employee {
   mobile: number;
 }
 
-type EmployeeProp = Pick<Employee, "id" | "name" | "address">;
+type EmployeeProp = {
+  id?: number;
+  name?: string;
+  address?: string;
+  mobile?: number;
+};
 
-function updateEmployee(EmployeeProp: EmployeeProp) {
-  // this is how we using that first api
-  // this is using for generics
-}
+function updateEmployee(EmployeeProp: EmployeeProp) {}
