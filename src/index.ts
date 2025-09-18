@@ -104,10 +104,10 @@
 
 //Records and Map
 
-type User = {
-  id: number;
-  name: string;
-};
+// type User = {
+//   id: number;
+//   name: string;
+// };
 
 // type Users = {              // this is second way to right this code
 //     [key: string]: {
@@ -116,27 +116,42 @@ type User = {
 // }
 // }
 
-type Users = {
-  [key: string]: User;
-};
+// type Users = {
+//   [key: string]: User;
+// };
 
-const users: Users = {
-  user1: {
-    id: 1,
-    name: "akash",
-  },
-};
+// const users: Users = {
+//   user1: {
+//     id: 1,
+//     name: "akash",
+//   },
+// };
 
-const newUser: Users = {
-  "abcd@12": {
-    id: 1,
-    name: "akash",
-  },
+// const newUser: Users = {
+//   "abcd@12": {
+//     id: 1,
+//     name: "akash",
+//   },
 
-  "abcd@123": {
-    id: 2,
-    name: "vivek",
-  },
-};
+//   "abcd@123": {
+//     id: 2,
+//     name: "vivek",
+//   },
+// };
 
 //--------------------------------------------------------------------------------------
+
+// Records
+
+// Records is typecript using language and it will using for clar way to right objact
+
+// type User = Record<string, { age: number; name: string }>;
+
+// const users: User = {
+//   "abcd@12": { age: 1, name: "akash" },
+//   "abcd@123": { age: 2, name: "vivek" },
+// };
+
+//--------------------------------------------------------------------------------------
+
+//Map
