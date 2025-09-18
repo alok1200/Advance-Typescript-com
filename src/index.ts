@@ -11,6 +11,8 @@
 
 // // console.log(answer);
 
+//--------------------------------------------------------------------------------------
+
 // interface User {
 //   id: string;
 //   name: string;
@@ -38,6 +40,8 @@
 //   // data base using yourself
 // }
 
+//--------------------------------------------------------------------------------------
+
 //Partial
 
 // interface Employee {
@@ -58,6 +62,8 @@
 
 // second way usinf Partial
 
+//--------------------------------------------------------------------------------------
+
 // interface Employee {
 //   id: number;
 //   name: string;
@@ -70,6 +76,8 @@
 // type UpdateEmployee = Partial<EmployeeProp>;
 
 // function updateEmployee(EmployeeProp: UpdateEmployee) {}
+
+//--------------------------------------------------------------------------------------
 
 // Readonly
 
@@ -91,6 +99,8 @@
 // use case of readonly is configraction any api key like (gpt api key etc)
 
 // user.name = "abjcnd"
+
+//--------------------------------------------------------------------------------------
 
 //Records and Map
 
@@ -128,3 +138,5 @@ const newUser: Users = {
     name: "vivek",
   },
 };
+
+//--------------------------------------------------------------------------------------
