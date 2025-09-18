@@ -203,9 +203,15 @@ const userProfileSchema = z.object({
     .optional(),
 });
 
+type FinalUserSchema = {
+  name: string;
+  email: string;
+  age?: number;
+};
+
 app.put("/user", (req, res) => {
   const { success } = userProfileSchema.safeParse(req.body);
-  const updateBody = req.body; // how to assign a type to updateBody?
+  const updateBody: FinalUserSchema = req.body; // how to assign a type to updateBody?
 
   if (!success) {
     res.status(411).json({});
