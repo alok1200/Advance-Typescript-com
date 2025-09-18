@@ -155,3 +155,17 @@
 //--------------------------------------------------------------------------------------
 
 //Map
+
+// it is a javascript concept
+type User = {
+  age: number;
+  name: string;
+};
+
+const users = new Map<string, User>(); // this is how we pass type in map
+
+users.set("ahiuhd", { age: 12, name: "akash" });
+users.set("ahiu", { age: 22, name: "akash" });
+
+const user = users.get("ahiu"); // easy to gat a value and dowing all performance
+users.delete("ahiu");
