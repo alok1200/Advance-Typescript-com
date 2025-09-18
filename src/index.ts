@@ -157,15 +157,64 @@
 //Map
 
 // it is a javascript concept
-type User = {
-  age: number;
-  name: string;
-};
+// type User = {
+//   age: number;
+//   name: string;
+//   email: string;
+// };
 
-const users = new Map<string, User>(); // this is how we pass type in map
+// const users = new Map<string, User>(); // this is how we pass type in map
 
-users.set("ahiuhd", { age: 12, name: "akash" });
-users.set("ahiu", { age: 22, name: "akash" });
+// users.set("ahiuhd", { age: 12, name: "akash", email: "akash@gmail.com" });
+// users.set("ahiu", { age: 22, name: "akash", email: "akash@gmail.com" });
 
-const user = users.get("ahiu"); // easy to gat a value and dowing all performance
-users.delete("ahiu");
+// const user = users.get("ahiu"); // easy to gat a value and dowing all performance
+// users.delete("ahiu");
+
+//--------------------------------------------------------------------------------------
+
+// Exclude
+
+// type EventType = "click" | "scroll" | "mousemove";
+// type ExcludeEvent = Exclude<EventType, "click">; // scroll | mousemove
+
+// const handelEvent = (event: ExcludeEvent) => {
+//   console.log(`handel Event ${event}`);
+// };
+
+// handelEvent("scroll"); // It will throw error when you pass click and using function
+
+//--------------------------------------------------------------------------------------
+
+//Zod
+
+import express from "express";
+import { z } from "zod";
+
+const app = express();
+
+// Define the schema for profile update
+const userProfileSchema = z.object({
+  name: z.string().min(1, { message: "Name cannot be empty" }),
+  email: z.string().email({ message: "Invalid email format" }),
+  age: z
+    .number()
+    .min(18, { message: "You must be at least 18 years old" })
+    .optional(),
+});
+
+app.put("/user", (req, res) => {
+  const { success } = userProfileSchema.safeParse(req.body);
+  const updateBody = req.body; // how to assign a type to updateBody?
+
+  if (!success) {
+    res.status(411).json({});
+    return;
+  }
+  // update database here
+  res.json({
+    message: "User updated",
+  });
+});
+
+app.listen(3000);
