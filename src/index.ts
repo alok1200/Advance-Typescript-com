@@ -189,6 +189,7 @@
 //Zod
 
 import express from "express";
+
 import { z } from "zod";
 
 const app = express();
@@ -203,11 +204,13 @@ const userProfileSchema = z.object({
     .optional(),
 });
 
-type FinalUserSchema = {
-  name: string;
-  email: string;
-  age?: number;
-};
+export type FinalUserSchema = z.infer<typeof userProfileSchema>;
+
+// type FinalUserSchema = {
+//   name: string;
+//   email: string;
+//   age?: number;
+// };
 
 app.put("/user", (req, res) => {
   const { success } = userProfileSchema.safeParse(req.body);
@@ -224,3 +227,11 @@ app.put("/user", (req, res) => {
 });
 
 app.listen(3000);
+
+//--------------------------------------------------------------------------------------
+// type inference
+
+// import { z } from "zod";   // this is how we using thst  type inference
+
+// const A = z.string();
+// type A = z.infer<typeof A>;
